@@ -23,18 +23,18 @@ public class Radio {
 
     public void increaseStation(int currentStation) {            //Метод на увеличение номера радиостанции
         if (currentStation < maxStation) {                       // Устанавливаем условия попадания в границы
-            currentStation = currentStation + 1;            // Если текущая станция меньше максимальной, то увеличиваем на единицу
+            this.currentStation = currentStation + 1;                                    // Если текущая станция меньше максимальной, то увеличиваем на единицу
         }
-        if (currentStation >= maxStation) {
+        if (currentStation >= maxStation){
             this.currentStation = minStation;                    // Если текущая станция равна максимальной, то устанавливаем минимальную радиостанцию
         }
     }
 
     public void decreaseStation(int currentStation) {            //Метод на уменьшение номера радиостанции
         if (currentStation > minStation) {                       // Устанавливаем условия попадания в границы
-            currentStation = currentStation - 1;            // Если текущая станция больше минимальной, то уменьшаем на единицу
+            this.currentStation = currentStation - 1;                                    // Если текущая станция больше минимальной, то уменьшаем на единицу
         }
-        if (currentStation <= minStation) {
+        if (currentStation <= minStation){
             this.currentStation = maxStation;                    // Если текущая станция равна минимальной, то устанавливаем максимальную радиостанцию
         }
     }
@@ -42,17 +42,15 @@ public class Radio {
 
     public int currentVolume;   // Текущая громкость
 
-    int maxVolume = 10;
-    int minVolume = 0;
-
     public int getCurrentVolume() {   // Геттер текущей громкости
 
         return currentVolume;         // Возвращаем значение текущей громкости
     }
 
     public void increaseVolume(int currentVolume) {  // Метод на увеличение громкости
+        final int maxVolume = 10;
         if (currentVolume < maxVolume) {   // Устанавливаем предельное значение не больше 10
-            currentVolume = currentVolume + 1;  // При выполнении условия увеличиваем громкость на единицу
+            this.currentVolume = currentVolume + 1;               // При выполнении условия увеличиваем громкость на единицу
         }
         if (currentVolume >= maxVolume) {
             this.currentVolume = maxVolume;
@@ -60,8 +58,9 @@ public class Radio {
     }
 
     public void decreaseVolume(int currentVolume) {  // Метод на уменьшение громкости
+        final int minVolume = 0;
         if (currentVolume > minVolume) {    // Устанавливаем ограничение минимального значения громкости
-            currentVolume = currentVolume - 1;  // При выполнении условия уменьшаем громкость на единицу
+            this.currentVolume = currentVolume - 1;               // При выполнении условия уменьшаем громкость на единицу
         }
         if (currentVolume <= minVolume) {
             this.currentVolume = minVolume;
