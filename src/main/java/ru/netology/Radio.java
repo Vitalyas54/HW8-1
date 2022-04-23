@@ -2,14 +2,17 @@ package ru.netology;
 
 public class Radio {
 
-    public int currentStation;  // Текущая радиостанция
+    public int currentStation;                                     // Текущая радиостанция
+    public int currentVolume;                                      // Текущая громкость
+    private int minStation = 0;                                    // Минимальная радиостанция
+    private int maxStation = 9;                                    // Максимальная радиостанция
+    private int minVolume = 0;                                     // Минимальная громкость
+    private int maxVolume = 10;                                    //Максимальная Громкость
 
-    int maxStation = 9;
-    int minStation = 0;
-
-    public int getCurrentStation() {  // Геттер текущей радиостанции
-        return currentStation;        // Возвращаем значение текущей радиостанции
+    public int getCurrentStation() {                               // Геттер текущей радиостанции
+        return currentStation;                                     // Возвращаем значение текущей радиостанции
     }
+
 
     public void setCurrentStation(int currentStation) {           // Сеттер текущей радиостанции
         if (currentStation < minStation) {                        // Устанавливаем минимальное значение
@@ -18,52 +21,43 @@ public class Radio {
         if (currentStation > maxStation) {                        // Устанавливаем максимальное значение
             return;
         }
-        this.currentStation = currentStation;                    // Возвращаем значение текущей радиостанции
+        this.currentStation = currentStation;                    // Присваиваем значение текущей радиостанции
     }
 
-    public void increaseStation(int currentStation) {            //Метод на увеличение номера радиостанции
-        if (currentStation < maxStation) {                       // Устанавливаем условия попадания в границы
-            this.currentStation = currentStation + 1;                                    // Если текущая станция меньше максимальной, то увеличиваем на единицу
-        }
-        if (currentStation >= maxStation){
-            this.currentStation = minStation;                    // Если текущая станция равна максимальной, то устанавливаем минимальную радиостанцию
-        }
+    public int getCurrentVolume() {                              // Геттер текущей громкости
+
+        return currentVolume;                                    // Возвращаем значение текущей громкости
     }
 
-    public void decreaseStation(int currentStation) {            //Метод на уменьшение номера радиостанции
-        if (currentStation > minStation) {                       // Устанавливаем условия попадания в границы
-            this.currentStation = currentStation - 1;                                    // Если текущая станция больше минимальной, то уменьшаем на единицу
-        }
-        if (currentStation <= minStation){
-            this.currentStation = maxStation;                    // Если текущая станция равна минимальной, то устанавливаем максимальную радиостанцию
-        }
+    public void setCurrentVolume(int currentVolume) {            // Сеттер текущей громкости
+        this.currentVolume = currentVolume;                      // Присваиваем значение текущей громкости
     }
 
-
-    public int currentVolume;   // Текущая громкость
-
-    public int getCurrentVolume() {   // Геттер текущей громкости
-
-        return currentVolume;         // Возвращаем значение текущей громкости
-    }
-
-    public void increaseVolume(int currentVolume) {  // Метод на увеличение громкости
-        final int maxVolume = 10;
-        if (currentVolume < maxVolume) {   // Устанавливаем предельное значение не больше 10
-            this.currentVolume = currentVolume + 1;               // При выполнении условия увеличиваем громкость на единицу
-        }
-        if (currentVolume >= maxVolume) {
-            this.currentVolume = maxVolume;
+    public void increaseStation() {                              //Метод на увеличение номера радиостанции
+        this.currentStation = currentStation + 1;                // Увеличиваем текущую радиостанцию на единицу, но проверяя условия
+        if (currentStation >= maxStation) {                      // Если текущая станция >= максимальной
+            this.currentStation = minStation;                    // То станция становится равна минимальной
         }
     }
 
-    public void decreaseVolume(int currentVolume) {  // Метод на уменьшение громкости
-        final int minVolume = 0;
-        if (currentVolume > minVolume) {    // Устанавливаем ограничение минимального значения громкости
-            this.currentVolume = currentVolume - 1;               // При выполнении условия уменьшаем громкость на единицу
+    public void decreaseStation() {                              //Метод на уменьшение номера радиостанции
+        this.currentStation = currentStation - 1;                // Уменьшаем текущую радиостанцию на единицу, но проверяя условия
+        if (currentStation <= minStation) {                      // Если текущая станция <= максимальной
+            this.currentStation = maxStation;                    // То станция становится равна максимальной
         }
-        if (currentVolume <= minVolume) {
-            this.currentVolume = minVolume;
+    }
+
+    public void increaseVolume() {                               // Метод на увеличение громкости
+        this.currentVolume = currentVolume + 1;                  // Увеличиваем текущую громкость на единицу, но проверяя условия
+        if (currentVolume >= maxVolume) {                        // Если текущая громкость >= максимальной
+            this.currentVolume = maxVolume;                      // То громкость остается максимальной
+        }
+    }
+
+    public void decreaseVolume() {                               // Метод на уменьшение громкости
+        this.currentVolume = currentVolume - 1;                  // Уменьшаем текущую громкость на единицу, но проверяя условия
+        if (currentVolume <= minVolume) {                        // Если текущая громкость <= минимальной
+            this.currentVolume = minVolume;                      // То громкость остается минимальной
         }
     }
 }
