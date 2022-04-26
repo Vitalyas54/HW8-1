@@ -35,14 +35,14 @@ public class Radio {
 
     public void increaseStation() {                              //Метод на увеличение номера радиостанции
         this.currentStation = currentStation + 1;                // Увеличиваем текущую радиостанцию на единицу, но проверяя условия
-        if (currentStation >= maxStation) {                      // Если текущая станция >= максимальной
+        if (currentStation == 10) {                              // Если текущая станция > максимальной
             this.currentStation = minStation;                    // То станция становится равна минимальной
         }
     }
 
     public void decreaseStation() {                              //Метод на уменьшение номера радиостанции
         this.currentStation = currentStation - 1;                // Уменьшаем текущую радиостанцию на единицу, но проверяя условия
-        if (currentStation <= minStation) {                      // Если текущая станция <= максимальной
+        if (currentStation == -1) {                              // Если текущая станция < минимальной
             this.currentStation = maxStation;                    // То станция становится равна максимальной
         }
     }

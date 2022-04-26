@@ -53,9 +53,9 @@ class RadioTest {
 
         Radio radio = new Radio();
 
-        radio.setCurrentStation(7);
+        radio.setCurrentStation(8);
         radio.increaseStation();
-        int expected = 8;
+        int expected = 9;
         int actual = radio.getCurrentStation();
 
         assertEquals(expected, actual);
@@ -79,9 +79,9 @@ class RadioTest {
 
         Radio radio = new Radio();
 
-        radio.setCurrentStation(8);
+        radio.setCurrentStation(1);
         radio.decreaseStation();
-        int expected = 7;
+        int expected = 0;
         int actual = radio.getCurrentStation();
 
         assertEquals(expected, actual);
@@ -105,9 +105,9 @@ class RadioTest {
 
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(5);
+        radio.setCurrentVolume(8);
         radio.increaseVolume();
-        int expected = 6;
+        int expected = 9;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
@@ -131,9 +131,9 @@ class RadioTest {
 
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(5);
+        radio.setCurrentVolume(2);
         radio.decreaseVolume();
-        int expected = 4;
+        int expected = 1;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
